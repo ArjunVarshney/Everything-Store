@@ -64,6 +64,7 @@ const StoreSwitcher = ({ className, items = [] }: StoreSwitcherProps) => {
           size="sm"
           role="combobox"
           aria-expanded={open}
+          aria-controls="radix-:R1mcq:"
           aria-label="Select a store"
           className={cn("w-[200px] justify-between", className)}
         >
