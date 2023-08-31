@@ -100,7 +100,7 @@ export async function GET(
     if (!params.categoryId)
       return new NextResponse("Category id is required", { status: 401 });
 
-    const category = await prismadb.category.deleteMany({
+    const category = await prismadb.category.findFirst({
       where: {
         id: params.categoryId,
       },
