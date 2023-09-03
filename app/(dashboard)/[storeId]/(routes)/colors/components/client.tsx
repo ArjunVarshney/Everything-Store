@@ -8,6 +8,7 @@ import { useParams, useRouter } from "next/navigation";
 import { ColorColumn, columns } from "./columns";
 import { DataTable } from "@/components/ui/data-table";
 import ApiList from "@/components/ui/api-list";
+import { useEffect, useState } from "react";
 
 interface ColorsClientProps {
   data: ColorColumn[];
@@ -16,6 +17,14 @@ interface ColorsClientProps {
 const ColorsClient: React.FC<ColorsClientProps> = ({ data }) => {
   const router = useRouter();
   const params = useParams();
+  
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  if (!isMounted) return null;
 
   return (
     <>
